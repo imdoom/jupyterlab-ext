@@ -18,8 +18,6 @@ import { ILauncher } from '@jupyterlab/launcher';
 
 import { Token } from '@lumino/coreutils';
 
-import { IMainMenu } from '@jupyterlab/mainmenu';
-
 /**
  * Initialization data for the jupyterlab_nb extension.
  */
@@ -37,7 +35,7 @@ export type IJLExtension = DocumentRegistry.IWidgetExtension<
   INotebookModel
 >;
 export const JLExtension = new Token<IJLExtension>(
-  'jupyter.extensions.kernelspy'
+  'jupyter.extensions.jupyterlabext'
 );
 
 const plugin: JupyterFrontEndPlugin<void> = {
@@ -55,7 +53,14 @@ const plugin: JupyterFrontEndPlugin<void> = {
 
     // Recreate views from layout restorer
 
-    addCommands(app, tracker, palette, launcher);
+    window.addEventListener('message', receiveMessage, false);
+
+    function receiveMessage(event: any) {
+      if ((event.data || {}).messageType === 'NotebookMessage') {
+        addCommands(app, tracker, palette, launcher);
+      }
+    }
+
     if (launcher) {
       launcher.add({
         command: CommandIDs.newCell,
@@ -97,7 +102,7 @@ function addCommands(
   launcher: ILauncher | null
 ): void {
   const { commands } = app;
-
+  console.log('adding cells');
   commands.addCommand(CommandIDs.newCell, {
     label: 'New cell',
     caption: 'Add new cell with data',
@@ -131,5 +136,4 @@ function addCommands(
     category: 'Cell'
   });
 }
-
 export default plugin;
