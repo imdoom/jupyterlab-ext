@@ -1,0 +1,20 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: v4.2.4
+_src_path: https://github.com/jupyterlab/extension-template
+author_email: akumar@esri.com
+author_name: Akshay Kumar
+data_format: string
+file_extension: ''
+has_binder: true
+has_settings: true
+kind: frontend
+labextension_name: notebooks7-migrate
+mimetype: ''
+mimetype_name: ''
+project_short_description: A JupyterLab extension to migrate jupyter notebooks to
+    Jupyterlab
+python_name: notebooks7_migrate
+repository: https://devtopia.esri.com/WebGIS/arcgis-notebook-server.git
+test: true
+viewer_name: ''
+

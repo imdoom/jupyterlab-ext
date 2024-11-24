@@ -1,0 +1,21 @@
+{
+  "jupyter.lab.shortcuts": [],
+  "title": "notebooks7-migrate",
+  "description": "notebooks7-migrate settings.",
+  "jupyter.lab.toolbars": {
+    "Notebook": [
+      {
+        "name": "kernelName",
+        "command": "",
+        "disabled": false,
+        "rank": 1000
+      }
+    ]
+  },
+  "@jupyterlab/docmanager-extension:plugin": {
+    "autosave": false
+  },
+  "type": "object",
+  "properties": {},
+  "additionalProperties": false
+}
